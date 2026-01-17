@@ -1,9 +1,8 @@
 import axios, { AxiosInstance } from 'axios';
 
 // 使用代理路径避免 CORS 问题
-const MCP_SERVER_URL = import.meta.env.DEV 
-  ? '/api/mcp'  // 开发环境使用 Vite 代理
-  : 'https://mcp.mcd.cn/mcp-servers/mcd-mcp';  // 生产环境直接访问（需要服务器支持 CORS）
+// 开发环境使用 Vite 代理，生产环境使用 Netlify 代理
+const MCP_SERVER_URL = '/api/mcp';
 
 export interface MCPRequest {
   jsonrpc: '2.0';

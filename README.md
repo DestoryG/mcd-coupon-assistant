@@ -112,11 +112,15 @@ m/
 │   ├── App.css                        # 公共样式
 │   ├── main.tsx                       # 入口文件
 │   └── vite-env.d.ts                 # Vite 类型定义
+├── netlify/
+│   └── functions/
+│       └── mcp.js                     # Netlify Function（代理 MCP Server）
 ├── screenshots/                       # 项目截图
 │   ├── screenshot-1.jpg
 │   └── screenshot-2.jpg
 ├── index.html                         # HTML 模板
 ├── vite.config.ts                     # Vite 配置
+├── netlify.toml                       # Netlify 部署配置
 ├── tsconfig.json                      # TypeScript 配置
 └── package.json                       # 项目配置
 ```
@@ -138,12 +142,46 @@ proxy: {
 }
 ```
 
+### 生产环境配置
+
+生产环境通过 Netlify Functions 代理解决 CORS 问题：
+
+- **开发环境**：使用 Vite 代理（`vite.config.ts`）
+- **生产环境**：使用 Netlify Function（`netlify/functions/mcp.js`）
+- **统一路径**：所有环境都使用 `/api/mcp` 路径
+
 ### 代码规范
 
 - 使用 TypeScript 进行类型检查
 - 遵循 React Hooks 最佳实践
 - CSS 样式采用 BEM 命名规范
 - 公共样式统一放在 `App.css`
+
+## 🚢 部署说明
+
+### Netlify 部署
+
+项目已配置 Netlify 部署，支持自动构建和部署：
+
+1. **连接 GitHub 仓库**到 Netlify
+2. **构建设置**（已自动配置）：
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+3. **Functions 配置**：
+   - Netlify 会自动识别 `netlify/functions/` 目录
+   - Function 路径：`/api/mcp`
+
+### 部署后验证
+
+部署完成后，访问网站并测试：
+1. 输入 MCP Token
+2. 验证 Token 是否成功
+3. 测试领取优惠券功能
+
+如果遇到 CORS 错误，检查：
+- Netlify Function 是否正常部署
+- 查看 Netlify Function 日志
+- 确认 `netlify.toml` 配置正确
 
 ## 🐛 故障排除
 
@@ -163,13 +201,14 @@ proxy: {
 
 **可能原因：**
 - 网络连接问题
-- CORS 跨域问题（开发环境已通过 Vite 代理解决）
+- CORS 跨域问题（开发环境通过 Vite 代理解决，生产环境通过 Netlify Function 解决）
 
 **解决方法：**
 1. 检查网络连接是否正常
-2. 重启开发服务器：`npm run dev`
-3. 检查浏览器控制台是否有错误信息
-4. 确认 Vite 代理配置是否正确
+2. **开发环境**：重启开发服务器 `npm run dev`
+3. **生产环境**：检查 Netlify Function 是否正常部署，查看 Function 日志
+4. 检查浏览器控制台是否有错误信息
+5. 确认代理配置是否正确（开发环境：`vite.config.ts`，生产环境：`netlify/functions/mcp.js`）
 
 ### 请求频率过高（429 错误）
 
@@ -201,18 +240,7 @@ proxy: {
 - 🔒 Token 存储在浏览器本地存储中，请妥善保管，不要分享给他人
 - 📱 应用支持响应式设计，可在移动设备上使用
 - ⚠️ 重复领取的优惠券将无效
-- 🌐 生产环境需要服务器支持 CORS，或使用代理服务器
-
-## 📝 更新日志
-
-### v1.0.0
-
-- ✨ 初始版本发布
-- ✅ 支持 MCP Token 管理
-- ✅ 支持浏览和领取优惠券
-- ✅ 支持查看已领取的优惠券
-- ✅ 响应式设计
-- ✅ 现代化 UI 设计
+- 🌐 生产环境通过 Netlify Functions 代理解决 CORS 问题
 
 ## 👨‍💻 开发者
 
