@@ -5,3 +5,8 @@
 # Netlify Functions 配置
 [functions]
   directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# 确保 Function 使用 Node.js 18+（支持 fetch API）
+[functions."netlify/functions/mcp"]
+  node_bundler = "esbuild"

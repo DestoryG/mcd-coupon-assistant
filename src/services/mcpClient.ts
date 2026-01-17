@@ -61,7 +61,7 @@ class MCPClient {
     };
 
     try {
-      // MCP Server 可能使用不同的端点，尝试直接 POST 到根路径
+      // 使用代理路径（开发环境通过 Vite 代理，生产环境通过 Netlify Function）
       const response = await this.axiosInstance.post<MCPResponse>('', request, {
         headers: {
           'Content-Type': 'application/json',

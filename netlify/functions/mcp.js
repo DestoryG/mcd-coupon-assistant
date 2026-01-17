@@ -19,13 +19,18 @@ exports.handler = async (event, context) => {
       statusCode: 405,
       headers: {
         'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ error: 'Method Not Allowed' }),
+      body: JSON.stringify({ 
+        jsonrpc: '2.0',
+        id: null,
+        error: { code: -32601, message: 'Method Not Allowed' }
+      }),
     };
   }
 
   try {
-    const requestBody = JSON.parse(event.body);
+    const requestBody = JSON.parse(event.body || '{}');
     
     // 转发请求到 MCP Server
     const response = await fetch('https://mcp.mcd.cn/mcp-servers/mcd-mcp', {
@@ -40,7 +45,7 @@ exports.handler = async (event, context) => {
     const data = await response.json();
 
     return {
-      statusCode: response.status,
+      statusCode: response.ok ? 200 : response.status,
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
@@ -50,6 +55,7 @@ exports.handler = async (event, context) => {
       body: JSON.stringify(data),
     };
   } catch (error) {
+    console.error('Netlify Function Error:', error);
     return {
       statusCode: 500,
       headers: {
@@ -57,8 +63,12 @@ exports.handler = async (event, context) => {
         'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({ 
-        error: 'Proxy Error', 
-        message: error.message 
+        jsonrpc: '2.0',
+        id: null,
+        error: {
+          code: -32000,
+          message: 'Proxy Error: ' + (error.message || 'Unknown error')
+        }
       }),
     };
   }
