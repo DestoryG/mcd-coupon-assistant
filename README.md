@@ -2,6 +2,12 @@
 
 一个基于 React + TypeScript + Vite 的现代化 Web 应用，用于通过麦当劳 MCP Server 领取和管理优惠券。
 
+## 📸 界面预览
+
+![界面预览 1](screenshots/screenshot-1.jpg)
+
+![界面预览 2](screenshots/screenshot-2.jpg)
+
 ## ✨ 功能特性
 
 - 🔑 **MCP Token 管理**：安全存储和管理您的 MCP Token
@@ -9,6 +15,7 @@
 - 💳 **已领取的优惠券**：查看已领取的优惠券详情，包括有效期、标签等信息
 - 📱 **响应式设计**：完美适配桌面端和移动端
 - 🎨 **现代化 UI**：采用麦当劳品牌设计语言，界面简洁美观
+
 
 ## 🛠️ 技术栈
 
@@ -105,6 +112,9 @@ m/
 │   ├── App.css                        # 公共样式
 │   ├── main.tsx                       # 入口文件
 │   └── vite-env.d.ts                 # Vite 类型定义
+├── screenshots/                       # 项目截图
+│   ├── screenshot-1.jpg
+│   └── screenshot-2.jpg
 ├── index.html                         # HTML 模板
 ├── vite.config.ts                     # Vite 配置
 ├── tsconfig.json                      # TypeScript 配置
