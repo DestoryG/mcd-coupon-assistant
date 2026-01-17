@@ -1,0 +1,117 @@
+.token-setup {
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem;
+}
+
+.token-setup-card {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.token-setup-card h2 {
+  color: #000;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.link {
+  color: #DA291C;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s, text-decoration 0.3s;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #B82218;
+  text-decoration: underline;
+}
+
+.token-form {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.token-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid #e0e0e0;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  border-radius: 999px;
+}
+
+.token-input:focus {
+  outline: none;
+  border-color: #FFC72C;
+}
+
+.token-input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background: #DA291C;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #B82218;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(218, 41, 28, 0.4);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.help-section {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-top: 2rem;
+}
+
+.help-section h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.help-section ol {
+  margin-left: 1.5rem;
+  color: #666;
+  line-height: 1.8;
+}
+
+.help-section li {
+  margin-bottom: 0.5rem;
+}

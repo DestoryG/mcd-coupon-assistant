@@ -1,0 +1,137 @@
+.dashboard {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  width: 100%;
+  padding: 1rem 1rem;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-title {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.clear-token-btn {
+  padding: 0.5rem 1rem;
+  background: white;
+  color: #000;
+  border: 1px solid #eee;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.clear-token-btn:hover {
+  background: #333;
+  color: white;
+}
+
+.tabs {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  padding: 0 1rem;
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem;
+  background: white;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #000;
+  font-weight: 600;
+  position: relative;
+  border: 1px solid #f1f1f1;
+}
+
+.tab:hover:not(.active) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.tab.active {
+  background: #fff;
+  font-weight: 600;
+  border: 1px solid #DA291C;
+  color: #DA291C;
+}
+
+.tab-content {
+  background: white;
+  min-height: 400px;
+  width: 100%;
+  overflow-x: hidden;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header-actions {
+    width: auto;
+    flex-wrap: nowrap;
+  }
+  
+  .site-title {
+    font-size: 1.2rem;
+  }
+  
+  .tab {
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .clear-token-btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+.app-footer {
+  text-align: center;
+  padding: 6rem 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.app-footer p {
+  margin: 0;
+}
+
+.footer-link {
+  color: #DA291C;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #B82218;
+  text-decoration: underline;
+}

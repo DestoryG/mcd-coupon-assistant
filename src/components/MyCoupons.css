@@ -1,0 +1,21 @@
+.coupon-price {
+  color: #ff6b6b;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.coupon-validity {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.coupon-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* 标签样式已移至 App.css 公共样式 */
+
