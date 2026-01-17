@@ -61,7 +61,6 @@ class MCPClient {
     };
 
     try {
-      // 使用代理路径（开发环境通过 Vite 代理，生产环境通过 Netlify Function）
       const response = await this.axiosInstance.post<MCPResponse>('', request, {
         headers: {
           'Content-Type': 'application/json',
@@ -91,9 +90,9 @@ class MCPClient {
       // 如果没有 result，尝试直接使用 data
       return response.data;
     } catch (error: any) {
-      // 处理网络错误（CORS、连接失败等）
+      // 处理网络错误
       if (error.code === 'ERR_NETWORK' || error.message === 'Network Error') {
-        throw new Error('网络连接失败：可能是 CORS 跨域问题。MCP Server 可能需要通过代理服务器访问，或者需要在服务器端调用。');
+        throw new Error('网络连接失败，请检查网络连接');
       }
       
       if (error.response) {

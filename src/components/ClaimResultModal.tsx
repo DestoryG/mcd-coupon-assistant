@@ -18,8 +18,8 @@ export default function ClaimResultModal({ isOpen, onClose, result }: ClaimResul
         </div>
         <div className="modal-body">
           <div className="claim-notice">
-            <p>领取完成，请前往「已领取的优惠券」中查看。</p>
-            <p className="notice-hint">注意：重复领取的优惠券将无效。</p>
+            <p>领取完成，请前往「已领取」中查看。</p>
+            <p className="notice-hint">注意：重复领取无效。</p>
           </div>
         </div>
         <div className="modal-footer">
