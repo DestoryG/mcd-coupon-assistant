@@ -8,5 +8,12 @@
   node_bundler = "esbuild"
 
 # 确保 Function 使用 Node.js 18+（支持 fetch API）
-[functions."netlify/functions/mcp"]
+[functions."netlify/functions/api/mcp"]
   node_bundler = "esbuild"
+
+# 重定向规则：将 /api/mcp 代理到 Netlify Function
+[[redirects]]
+  from = "/api/mcp"
+  to = "/.netlify/functions/api/mcp"
+  status = 200
+  force = true
