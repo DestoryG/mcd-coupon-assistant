@@ -63,21 +63,19 @@ services:
   app:
     container_name: mcd-coupon-assistant
     image: ghcr.io/destoryg/mcd-coupon-assistant
-    build: .
     ports:
       - "3000:3000"
-    volumes:
-      # 源码热更新
-      - .:/app
-      # 防止 node_modules 被宿主机覆盖
-      - /app/node_modules
     environment:
       NODE_ENV: development
     command: npm run dev -- --host
     restart: unless-stopped
 
 ```
-之后请在浏览器通过"http://你的服务器域名:3000"来访问。
+然后在相同目录下执行命令：
+```bash
+docker-compose up -d
+```
+之后请在浏览器通过 `http://你的服务器域名:3000` 来访问。
 
 ## 📖 使用说明
 
