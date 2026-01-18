@@ -54,7 +54,7 @@ npm run build
 
 构建产物将输出到 `dist` 目录。
 
-## Docker部署
+## 使用Docker部署到服务器
 新建docker-compose.yml并输入：
 ```
 version: "3.9"
