@@ -13,6 +13,9 @@ RUN npm install
 # 再复制全部源代码
 COPY . .
 
+# 👇 切换到 node 用户（官方镜像自带）
+USER node
+
 # 应用监听端口
 EXPOSE 3000
 
