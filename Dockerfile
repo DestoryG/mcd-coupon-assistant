@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # 启动开发模式
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev","--","--host"]
