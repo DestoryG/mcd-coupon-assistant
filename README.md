@@ -54,6 +54,31 @@ npm run build
 
 构建产物将输出到 `dist` 目录。
 
+## Docker部署
+新建docker-compose.yml并输入：
+```
+version: "3.9"
+
+services:
+  app:
+    container_name: mcd-coupon-assistant
+    image: ghcr.io/destoryg/mcd-coupon-assistant
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      # 源码热更新
+      - .:/app
+      # 防止 node_modules 被宿主机覆盖
+      - /app/node_modules
+    environment:
+      NODE_ENV: development
+    command: npm run dev -- --host
+    restart: unless-stopped
+
+```
+之后请在浏览器通过"http://你的服务器域名:3000"来访问。
+
 ## 📖 使用说明
 
 ### 1. 申请 MCP Token
