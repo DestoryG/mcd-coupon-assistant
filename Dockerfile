@@ -1,5 +1,5 @@
 # 基础镜像：满足 Node >=16
-FROM node:16
+FROM node:21-alpine
 
 # 容器内工作目录
 WORKDIR /app
