@@ -1,23 +1,19 @@
-# 基础镜像：满足 Node >=16
 FROM node:16
 
-# 容器内工作目录
+ARG UID=1000
+ARG GID=1000
+
+RUN groupadd -g ${GID} app \
+ && useradd -m -u ${UID} -g ${GID} app
+
 WORKDIR /app
 
-# 先复制依赖描述文件（最大化利用缓存）
 COPY package*.json ./
-
-# 安装依赖
 RUN npm install
 
-# 再复制全部源代码
 COPY . .
 
-# 👇 切换到 node 用户（官方镜像自带）
-USER node
+USER app
 
-# 应用监听端口
 EXPOSE 3000
-
-# 启动开发模式
 CMD ["npm", "run", "dev"]
